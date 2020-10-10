@@ -1,0 +1,31 @@
+﻿@model TestProj.Models.Employee
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Confirmation</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-horizontal">
+        <h4>Are you sure to delete this record?</h4>
+        <hr />
+        @Html.HiddenFor(model => model.EmployeeID)
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="submit" value="Delete" class="btn btn-warning" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
